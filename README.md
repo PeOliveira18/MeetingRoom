@@ -1,8 +1,8 @@
-# 🏢 Meeting Room API
+# Meeting Room API
 
 API REST para gerenciamento de salas de reunião e reservas, desenvolvida com Spring Boot 4.
 
-## 📋 Descrição do Projeto
+## Descrição do Projeto
 
 Sistema completo para gerenciar salas de reunião e suas reservas, incluindo:
 - Cadastro e gerenciamento de salas
@@ -11,7 +11,7 @@ Sistema completo para gerenciar salas de reunião e suas reservas, incluindo:
 - Cache de consultas
 - Documentação interativa com Swagger
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Java 17**
 - **Spring Boot 4.0.6**
@@ -27,7 +27,7 @@ Sistema completo para gerenciar salas de reunião e suas reservas, incluindo:
 - **JUnit 5 + Mockito** - Testes unitários
 - **Maven** - Gerenciamento de dependências
 
-## 📦 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 - Java 17 ou superior
@@ -59,7 +59,7 @@ mvn spring-boot:run
   - Username: `sa`
   - Password: *(deixe em branco)*
 
-## 🔐 Autenticação
+## Autenticação
 
 A API utiliza JWT (JSON Web Token) para autenticação. Para acessar os endpoints protegidos:
 
@@ -70,9 +70,9 @@ A API utiliza JWT (JSON Web Token) para autenticação. Para acessar os endpoint
 - Username: `admin`
 - Password: `admin123`
 
-## 📚 Endpoints Disponíveis
+## Endpoints Disponíveis
 
-### 🔑 Autenticação
+### Autenticação
 
 #### Login
 ```http
@@ -95,7 +95,7 @@ Content-Type: application/json
 
 ---
 
-### 🏢 Salas de Reunião
+### Salas de Reunião
 
 #### Criar Sala
 ```http
@@ -147,7 +147,7 @@ Authorization: Bearer {token}
 
 ---
 
-### 📅 Reservas
+### Reservas
 
 #### Criar Reserva
 ```http
@@ -180,7 +180,7 @@ Authorization: Bearer {token}
 
 ---
 
-## 🧪 Exemplos de Requisições
+## Exemplos de Requisições
 
 ### Postman Collection
 
@@ -371,7 +371,7 @@ curl -X POST http://localhost:8080/api/reservas \
   }'
 ```
 
-## 🧪 Testes
+## Testes
 
 Execute os testes unitários:
 
@@ -386,12 +386,12 @@ mvn test -Dtest=SalaServiceTest
 ```
 
 **Cobertura de testes:**
-- ✅ Testes de regras de negócio (conflito de reservas)
-- ✅ Testes de validação
-- ✅ Testes de CRUD
-- ✅ Testes de filtros e buscas
+- Testes de regras de negócio (conflito de reservas)
+- Testes de validação
+- Testes de CRUD
+- Testes de filtros e buscas
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 src/
@@ -412,7 +412,7 @@ src/
         └── service/         # Testes unitários
 ```
 
-## 🔒 Regras de Negócio
+## Regras de Negócio
 
 1. **Reservas:**
    - Data/hora de fim deve ser posterior à data/hora de início
@@ -428,7 +428,7 @@ src/
    - Token JWT válido por 1 hora
    - Todos os endpoints (exceto login) requerem autenticação
 
-## 🐛 Tratamento de Erros
+## Tratamento de Erros
 
 A API retorna respostas padronizadas para erros:
 
@@ -452,14 +452,10 @@ A API retorna respostas padronizadas para erros:
 - `404` - Recurso não encontrado
 - `500` - Erro interno do servidor
 
-## 📝 Licença
+## Licença
 
 Este projeto foi desenvolvido para fins educacionais.
 
-## 👨‍💻 Autor
+## Autor
 
 Pedro Oliveira - [GitHub](https://github.com/PeOliveira18)
-
----
-
-⭐ Se este projeto foi útil, considere dar uma estrela no repositório!

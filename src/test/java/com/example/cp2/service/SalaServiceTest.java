@@ -51,8 +51,8 @@ class SalaServiceTest {
     @Test
     @DisplayName("Deve criar sala com sucesso")
     void deveCriarSalaComSucesso() {
-    
-        when(salaRepository.save(any(Sala.class))).thenReturn(sala);        
+        when(salaRepository.save(any(Sala.class))).thenReturn(sala);
+
         SalaDTO.Response response = salaService.criar(salaRequest);
 
         assertNotNull(response);
@@ -60,14 +60,13 @@ class SalaServiceTest {
         assertEquals("Sala de Reunião A", response.getNome());
         assertEquals(10, response.getCapacidade());
         assertEquals("1º Andar", response.getLocalizacao());
-        
+
         verify(salaRepository, times(1)).save(any(Sala.class));
     }
 
     @Test
     @DisplayName("Deve filtrar salas por capacidade mínima")
     void deveFiltrarSalasPorCapacidadeMinima() {
-        // Arrange
         Sala salaGrande = Sala.builder()
                 .id(2L)
                 .nome("Auditório")
@@ -78,14 +77,13 @@ class SalaServiceTest {
         when(salaRepository.findByCapacidadeGreaterThanEqual(20))
                 .thenReturn(Arrays.asList(salaGrande));
 
-        
         List<SalaDTO.Response> response = salaService.listar(null, 20);
-        
+
         assertNotNull(response);
         assertEquals(1, response.size());
         assertEquals("Auditório", response.get(0).getNome());
         assertEquals(50, response.get(0).getCapacidade());
-        
+
         verify(salaRepository, times(1)).findByCapacidadeGreaterThanEqual(20);
         verify(salaRepository, never()).findAll();
     }

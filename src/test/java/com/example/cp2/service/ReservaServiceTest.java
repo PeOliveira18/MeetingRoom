@@ -64,7 +64,7 @@ class ReservaServiceTest {
     void deveCriarReservaComSucesso() {
         when(salaRepository.findById(1L)).thenReturn(Optional.of(sala));
         when(reservaRepository.existeConflito(anyLong(), any(), any(), anyLong())).thenReturn(false);
-        
+
         Reserva reservaSalva = Reserva.builder()
                 .id(1L)
                 .sala(sala)
@@ -75,13 +75,15 @@ class ReservaServiceTest {
                 .build();
         
         when(reservaRepository.save(any(Reserva.class))).thenReturn(reservaSalva);
+
         ReservaDTO.Response response = reservaService.criar(reservaRequest);
+
         assertNotNull(response);
         assertEquals(1L, response.getId());
         assertEquals("Sala de Reunião A", response.getNomeSala());
         assertEquals("João Silva", response.getResponsavel());
         assertEquals("ATIVA", response.getStatus());
-        
+
         verify(salaRepository, times(1)).findById(1L);
         verify(reservaRepository, times(1)).existeConflito(anyLong(), any(), any(), anyLong());
         verify(reservaRepository, times(1)).save(any(Reserva.class));
@@ -98,7 +100,7 @@ class ReservaServiceTest {
         });
 
         assertEquals("Já existe uma reserva ativa para essa sala nesse horário", exception.getMessage());
-        
+
         verify(salaRepository, times(1)).findById(1L);
         verify(reservaRepository, times(1)).existeConflito(anyLong(), any(), any(), anyLong());
         verify(reservaRepository, never()).save(any(Reserva.class));
@@ -118,6 +120,7 @@ class ReservaServiceTest {
 
         when(reservaRepository.findById(1L)).thenReturn(Optional.of(reserva));
         when(reservaRepository.save(any(Reserva.class))).thenReturn(reserva);
+
         reservaService.cancelar(1L);
 
         assertEquals(Reserva.StatusReserva.CANCELADA, reserva.getStatus());

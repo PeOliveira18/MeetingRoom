@@ -43,7 +43,7 @@ public class ReservaService {
                 dto.getSalaId(),
                 dto.getDataHoraInicio(),
                 dto.getDataHoraFim(),
-                -1L // -1 para não excluir nenhuma reserva na criação
+                -1L
         );
 
         if (conflito) {
