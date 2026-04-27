@@ -1,4 +1,5 @@
 # Meeting Room API
+## Pedro Oliveira - 99943
 
 API REST para gerenciamento de salas de reunião e reservas, desenvolvida com Spring Boot 4.
 
